@@ -4,7 +4,8 @@ This article is part of Udacity's Data Scientist Nanodegree program: Write a Dat
 The purpose of this article is to put into practice how to communicate efficiently technical results, share ideas with stakeholders in a blog post.
 
 Each year since 2011, Stack Overflow has asked developers about their favorite technologies, coding habits, and work preferences, as well as how they learn, share, and level up. 
-The 2017 survey data covers 64,000 reviews and more than 150 questions. The original survey article is published here: https://insights.stackoverflow.com/survey/2017.
+The 2017 survey data covers 64,000 reviews and more than 150 questions. The original survey article is published here: 
+[Survey](https://insights.stackoverflow.com/survey/2017)
 
 You may have heard statements like “Java has become an old lady now, You Should Not Learn” or “you should learn python”.
 So, Why people say that?
@@ -57,9 +58,9 @@ So, What is Rust?
 Rust is a multi-paradigm, general-purpose programming language designed for performance and safety, especially safe concurrency. 
 Syntactically similar to C++,Rust is notable for enforcing memory safety — that is, that all references point to valid memory — without requiring the use of a garbage collector or reference counting like other memory-safe languages.
 Memory safety is enforced by the compiler's borrow checker, which tracks object lifetime and variable scope as references are passed throughout the program. 
-Rust is considered a systems programming language with mechanisms for low-level memory management, but also offers high-level features such as functional programming. (https://en.wikipedia.org/wiki/Rust_(programming_language)
+Rust is considered a systems programming language with mechanisms for low-level memory management, but also offers high-level features such as functional programming. [wiki](https://en.wikipedia.org/wiki/Rust_(programming_language))
 
-For more information, please visit Rust's homepage https://www.rust-lang.org/
+For more information, please visit Rust's [homepage](https://www.rust-lang.org)
 
 
 # Conclusion
