@@ -1,4 +1,7 @@
-## Which were the most popular programming languages in 2017?
+## Which programming languages have ruled development in 2017?
+![programming-languages](https://user-images.githubusercontent.com/104986203/168545838-03f2ab38-554c-4c08-8c2b-8167164c300d.png)
+
+
 
 This article is part of Udacity's Data Scientist Nanodegree program: Write a Data Science Blog Post.
 The purpose of this article is to put into practice how to communicate efficiently technical results, share ideas with stakeholders in a blog post.
