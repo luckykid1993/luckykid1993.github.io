@@ -200,6 +200,10 @@ I will try to use 3 algorithms to find which is best ft for this case:
 2. RandomForestClassifier
 3. AdaBoostClassifier
 
+![42](https://user-images.githubusercontent.com/104986203/170839594-23b2633f-e1e5-458c-8709-1242efe90986.PNG)
+
+![41](https://user-images.githubusercontent.com/104986203/170839596-e394b17f-6e8b-43d9-9b51-32d66926c431.PNG)
+
 After trying all 3 algorithms, AdaBoostClassifier algorithm gives the best results.:
 
 1. Bogo model has a 70% accuracy rate and a 69% F1 score.
