@@ -275,7 +275,7 @@ In addition, I believe we can test alternative algothrim to see which will fit o
 
 If I have enough time, I'll create a website that generates a prediction result after entering the customer's information and the offer's details.
 ### Github:
-[Starbucks Capstone]()
+[Starbucks Capstone](https://github.com/luckykid1993/Udacity/blob/main/StarbucksCapstone/Starbucks_Capstone_notebook.ipynb)
 
 ### Reference
 The image just after the title is published here: 
