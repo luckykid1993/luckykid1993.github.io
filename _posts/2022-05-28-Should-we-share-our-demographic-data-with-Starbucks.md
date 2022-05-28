@@ -2,8 +2,9 @@
 ![starbucks-2226717_640](https://user-images.githubusercontent.com/104986203/170838838-95bdf8ff-6a33-4bdd-ba2d-6d700c608245.jpg)
 
 
-#  Project Definition
-## Project Overview
+##  Project Definition
+
+### Project Overview
 
 This data set contains simulated data that mimics customer behavior on the Starbucks rewards mobile app. 
 Once every few days, Starbucks sends out an offer to users of the mobile app. 
@@ -14,7 +15,7 @@ Not all users receive the same offer, and that is the challenge to solve with th
 
 Our task is to combine transaction, demographic and offer data to determine which demographic groups respond best to which offer type. 
 
-## Problem Statement
+### Problem Statement
 Sometimes we don't want to share personal information with others. 
 But with starbucks, I think it helps if we share personal information with them. 
 With this information, they can be used to more accurately send us an offer, which benefits both them and us.
@@ -23,14 +24,14 @@ In this project, i try to answer 2 questions below:
 1. What factors have a major impact on the use of a offer?
 2. Is it possible to create a model that predicts whether or not someone will accept an offer based on demographic data?
 
-## Metrics
+### Metrics
 I decided to focus to the F1 score as a measure to evaluate the model. 
 The reason is that I want to avoid predicting false negatives, such as: It is good if we send someone an offer, but we predict false.
 
-#  Analysis
-## Data Exploration
+##  Analysis
+### Data Exploration
 
-### Data Dictionary
+#### Data Dictionary
 The data is contained in three files:
 
 * portfolio.json - containing offer ids and meta data about each offer
@@ -76,7 +77,7 @@ There are three types of offers that can be sent: buy-one-get-one (BOGO), discou
 
 We must examine the datasets in order to comprehend the data set, which involves checking for missing values, displaying the data distribution, and so on.
 
-### Portfolio
+#### Portfolio
 ![1](https://user-images.githubusercontent.com/104986203/170838877-26bc4cfd-164e-45ce-9f13-42c8cdcff45b.PNG)
 ![3](https://user-images.githubusercontent.com/104986203/170838896-dc77baca-35a7-41f8-a511-87d81ae03eae.PNG)
 There are no missing values in the data.
@@ -89,7 +90,7 @@ We have 3 types of offer: bogo, discount and informational.
 
 Most of offer open about 6-7 days.
 
-### Profile
+#### Profile
 ![8](https://user-images.githubusercontent.com/104986203/170839030-7a2218c9-85e2-4638-bef0-a4e39224b23b.PNG)
 ![9](https://user-images.githubusercontent.com/104986203/170839037-d2a7ec79-d3e0-406d-9cf0-b7f746b4759c.PNG)
 ![10](https://user-images.githubusercontent.com/104986203/170839040-8fa811c1-9799-4174-b7cb-60f0bec0be01.PNG)
@@ -113,7 +114,7 @@ The distribution of age is nearly normal distribution for all gender (Male, Fema
 The income seems to be similar for all genders.
 
 
-### transcript
+#### transcript
 
 ![17](https://user-images.githubusercontent.com/104986203/170839095-1d7e222a-fe80-46e7-ad82-d8438fb7d998.PNG)
 ![19](https://user-images.githubusercontent.com/104986203/170839110-e6a09570-d4e9-4b37-9a76-110af8287df2.PNG)
@@ -133,10 +134,10 @@ Each user received about 4-5 offers, maximum is 6.
 We have 4 types of event: offer received, offer viewed, offer completed, transaction
 
 
-# Methodology
+## Methodology
 
-## Data Preprocessing
-### Portfolio
+### Data Preprocessing
+#### Portfolio
 ![1](https://user-images.githubusercontent.com/104986203/170839194-a7208004-14fb-4591-8301-4916d2001d81.PNG)
 
 Data in channels column is inside [] and separated by comma.
@@ -148,7 +149,7 @@ Then drop the channels column and change id column's name to 'offer_id'.
 ![31](https://user-images.githubusercontent.com/104986203/170839210-30a71f1e-c05e-43b9-847c-28cabf8d7262.PNG)
 
 
-### Profile
+#### Profile
 There are 2175 records that missing value (age, gender, income). 
 I want to use these columns later, it's about only 12% of 17000 records, so I think it's ok to drop these records.
 I changed the id column's name to 'person' to make it easier to remember.
@@ -156,7 +157,7 @@ I changed the id column's name to 'person' to make it easier to remember.
 ![32](https://user-images.githubusercontent.com/104986203/170839236-d36f3962-77aa-4436-b187-eec8f6961cec.PNG)
 
 
-### Transcript
+#### Transcript
 We have to extract offer id, amout, reward from value column.
 After extract data, i droped unuse column.
 Because the event 'transaction' does not have a corresponding offer id, I used the offer id from earlier rows to fill it in.
@@ -178,7 +179,7 @@ With effective = 0, the customer received an offer, but there was no Effective o
 ![35](https://user-images.githubusercontent.com/104986203/170839312-a729777e-06ac-4316-aae3-dcf4c6d6bca0.PNG)
 
 
-### Feature engineering
+#### Feature engineering
 After cleaned data, i created 2 features:
 
 1. A columns that indicate how many days that a user is a member (member_days)
@@ -190,7 +191,7 @@ I built 2 dummy columns (gender_M, gender_F) from the gender column because the 
 ![37](https://user-images.githubusercontent.com/104986203/170839357-231af99c-74f6-4986-8238-6c46d7bd230e.PNG)
 
 
-## Implementation
+### Implementation
 Because we have 3 types of offer, I'm going to create 3 different models (1 model for each type of offer) to predict that user make a purchase or not. 
 It is in fact a supervised learning model of binary classification.
 
@@ -224,7 +225,7 @@ I will use these models to find the factors have major impact on the use of a of
 ![55](https://user-images.githubusercontent.com/104986203/170839412-62d5e463-b180-4704-aec0-7ee342772af7.PNG)
 
 
-## Refinement
+### Refinement
 I attempted to tune the AdaBoostClassifier model using GridSearchCV.
 
 ![56](https://user-images.githubusercontent.com/104986203/170839421-903be8a6-4aca-4954-9e9c-feb22397f4fc.PNG)
@@ -241,8 +242,8 @@ But the accuracy rate didn't change:
 
 ![59](https://user-images.githubusercontent.com/104986203/170839428-11fd85b6-7270-472a-af41-d7ba07a708f7.PNG)
 
-# Results
-## Model Evaluation and Validation
+## Results
+### Model Evaluation and Validation
 Based on the project's findings, I believe we can apply a machine learning model to predict whether or not a customer will accept the offer. 
 The best model also tells us the most important factors that influence the likelihood of customers responding to the offer, such as membership term, age, and income.
 The length of membership is the most crucial aspect in determining whether or not the offer will be accepted. 
@@ -263,14 +264,14 @@ The best model is AdaBoostClassifier:
 
 The accuracy is greater than 60% for all three models, in terms of business, I think that it is a good accuracy rate, and it is acceptable in this project.
 
-# Conclusion
-## Reflection
+## Conclusion
+### Reflection
 In this project, I discarded any records that lacked demographic data. We lost data from 12% of our users. 
 
 The accuracy is not great.
 
 I didn't look at some demographic groups to see if they would buy even if they didn't get an offer. From a commercial standpoint, we wouldn't send a buy 10 get 2 off offer to a consumer who is already planning to make a $10 purchase without an offer.
-## Improvement
+### Improvement
 I believe that if i can find a way to keep such data from being lost, the accuracy will improve. For example, probably, we can fill null demographic data with median.
 
 I could add more features, or I could test removing some features to see how they effect the model's performance.
@@ -278,9 +279,9 @@ I could add more features, or I could test removing some features to see how the
 In addition, I believe we can test alternative algothrim to see which will fit our data the best.
 
 If I have enough time, I'll create a website that generates a prediction result after entering the customer's information and the offer's details.
-### Github:
+#### Github:
 [Starbucks Capstone](https://github.com/luckykid1993/Udacity/blob/main/StarbucksCapstone/Starbucks_Capstone_notebook.ipynb)
 
-### Reference
+#### Reference
 The image just after the title is published here: 
 [pixabay.com](https://pixabay.com/photos/starbucks-christmas-lawn-coffee-2226717/)
